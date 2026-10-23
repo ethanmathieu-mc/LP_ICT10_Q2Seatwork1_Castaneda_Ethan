@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <title>Quarter 2 Seatwork - Cyberware Club</title>
+    <style>
+
+    body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(rgba(5, 10, 14, 0.4), rgba(5, 10, 14, 0.4)), url('badlands.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Rajdhani', Arial, sans-serif;
+    }
+
+    .header {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    background: #380e0e;
+    border-bottom: 3px solid #f91c1c; 
+    box-shadow: 0 4px 15px rgba(249, 28, 28, 0.2);
+    }
+
+/*top glowing line*/
+    .header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #f91c1c; 
+    box-shadow: 0 0 8px #f91c1c;
+    }
+
+/*static line stuff, searched up how to do this*/
+    .header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0px,
+     rgba(0, 0, 0, 0.2) 1px,
+    transparent 1px,
+    transparent 3px
+    );
+    pointer-events: none;
+    }
+
+    .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    width: 100%;
+    }
+
+    .box {
+    width: 100%;
+    max-width: 440px;
+    background: rgba(18, 22, 28, 0.92);
+    border: 1px solid #ff1a2b;
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom:20px
+    }
+
+    .input {
+    width: 100%;
+    padding: 12px 1px;
+    background: #0d1117;
+    border: 1px solid #2a3441;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    outline: none;
+    text-align: center;
+    margin-bottom: 10px;
+    }
+
+    .buttoninput {
+    width: 100%;
+    padding: 14px;
+    background: #b30012;
+    border: 1px solid #ff4d5a;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    }
+
+    .ruintheclub {
+    background: rgba(15, 23, 30, 0.95);
+    border-radius: 6px;
+    border: 0.1px solid #ff4d5a;
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff
+    }   
+
+    .header-box {
+    width: 100%;
+    max-width: 200px;
+    background: rgba(18, 22, 28, 0.92);
+    border: 1px solid #ff1a2b;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 2px 30px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+    }
+    
+    </style>
+   
+</head>
+
+<body>
+
+    
+    
+    <header class="header"> </header>
+
+    <div class="main">
+    <header class="header-box">
+        <div class="reactor"></div>
+        <h1>Cyberware Club</h1>
+        <p>This club is full of tech enthusiasts.</p>
+    </header>
+
+    <main>
+        <div class="box">
+        <form>
+            <input type="text" id="first_name" class="input" placeholder="Enter your First Name">
+            <input type="text" id="last_name" class="input" placeholder="Enter your Last Name">
+            <input type="button" py-click="candidate_checker" class="buttoninput" value="Enter">
+        </form>
+        </div>
+        <div id="result" class="ruintheclub"></div>
+    </main>
+    </div>
+    <py-script src="main.py"></py-script>
+</body>
+</html>
